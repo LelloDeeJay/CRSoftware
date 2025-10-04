@@ -1,0 +1,84 @@
+<Window x:Class="CRSoftware.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CRSoftware - Installa qualsiasi OS" Height="600" Width="800"
+        Background="#F5F5F5" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="CRSoftware" FontSize="28" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,10"/>
+        <TextBlock Text="Installa Windows 11, Linux o ChromeOS Flex su qualsiasi PC" 
+                   FontSize="14" Foreground="#7F8C8D" Margin="0,0,0,20"/>
+
+        <ComboBox x:Name="CmbLanguage" SelectedIndex="0" HorizontalAlignment="Right" Width="120" Margin="0,0,0,10">
+                  <ComboBoxItem Content="🇮🇹 Italiano" Tag="it"/>
+                  <ComboBoxItem Content="🇬🇧 Inglese" Tag="en"/>
+                  <ComboBoxItem Content="🇪🇸 Spagnolo" Tag="es"/>
+                  <ComboBoxItem Content="🇫🇷 Francese" Tag="fr"/>
+                  <ComboBoxItem Content="🇩🇪 Tedesco" Tag="de"/>
+                  </ComboBox>
+
+        <TabControl Grid.Row="1" TabStripPlacement="Left">
+            <!-- Windows 11 -->
+            <TabItem Header="Windows 11">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Windows 11 (con bypass completo)" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="• Bypass TPM 2.0, Secure Boot, CPU non supportata" Foreground="#27AE60"/>
+                    <TextBlock Text="• Include ottimizzazioni post-installazione" Foreground="#27AE60"/>
+                    <Button x:Name="BtnInstallWin11" Content="Installa Windows 11 qui" 
+                            Height="40" Margin="0,20,0,0" Click="BtnInstallWin11_Click"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Linux -->
+            <TabItem Header="Linux">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Scegli la tua distribuzione Linux" FontSize="16" FontWeight="Bold" Margin="0,0,0,15"/>
+                    
+                    <ComboBox x:Name="CmbLinuxDistro" SelectedIndex="0" Margin="0,0,0,15">
+                        <ComboBoxItem Content="Ubuntu (GNOME)" Tag="ubuntu"/>
+                        <ComboBoxItem Content="Kubuntu (KDE Plasma)" Tag="kubuntu"/>
+                        <ComboBoxItem Content="Xubuntu (XFCE - leggero)" Tag="xubuntu"/>
+                        <ComboBoxItem Content="Linux Mint (Cinnamon)" Tag="linuxmint"/>
+                        <ComboBoxItem Content="Fedora Workstation (GNOME)" Tag="fedora"/>
+                        <ComboBoxItem Content="Debian (Stabile)" Tag="debian"/>
+                    </ComboBox>
+
+                    <Button x:Name="BtnInstallLinux" Content="Installa Linux selezionato" 
+                            Height="40" Click="BtnInstallLinux_Click"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- ChromeOS -->
+            <TabItem Header="ChromeOS">
+                <StackPanel Margin="20">
+                    <TextBlock Text="ChromeOS Flex (Google)" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="• Sistema leggero, sicuro e aggiornato da Google" Foreground="#27AE60"/>
+                    <TextBlock Text="• Perfetto per vecchi PC, scuole, uffici" Foreground="#27AE60"/>
+                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Chrome_OS_logo.svg/120px-Chrome_OS_logo.svg.png" 
+                           Width="80" Height="80" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                    <Button x:Name="BtnInstallChromeOS" Content="Installa ChromeOS Flex" 
+                            Height="40" Margin="0,20,0,0" Click="BtnInstallChromeOS_Click"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- USB Multi-Boot -->
+            <TabItem Header="USB Multi-Boot">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Crea una chiavetta USB multi-boot" FontSize="16" FontWeight="Bold" Margin="0,0,0,15"/>
+                    <TextBlock Text="• Inserisci una chiavetta USB (min. 16 GB)" Foreground="#2980B9"/>
+                    <TextBlock Text="• CRSoftware userà Ventoy per rendere la USB avviabile con più OS" Foreground="#2980B9"/>
+                    <Button x:Name="BtnCreateUSB" Content="Crea USB Multi-Boot" 
+                            Height="40" Margin="0,20,0,0" Click="BtnCreateUSB_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <TextBlock Grid.Row="2" Text="CRSoftware v3.0 — Il tuo tool universale per ogni PC" 
+                   HorizontalAlignment="Center" Foreground="#95A5A6" FontSize="11" Margin="0,10,0,0"/>
+    </Grid>
+</Window>
