@@ -1,11 +1,14 @@
 <<<<<<< HEAD
-# 🚀 CRSoftware
+# ![CRSoftware Logo](Resources/CRSoftware.png) CRSoftware
+
 **Il tuo tool universale per installare Windows 11, Linux e ChromeOS Flex su qualsiasi PC — anche senza requisiti!**
 
-![CRSoftware Screenshot](docs/screenshot.png)
+![Windows 11 Bypass](Resources/Win11,ByPass.png)
+![Linux Varie Versioni](Resources/Linux%20Varie%20Versioni.png)
+![Chrome OS](Resources/Chrome%20OS.png)
 
 ## ✨ Funzionalità
-- ✅ **Windows 11 in italiano** (con bypass TPM, Secure Boot, CPU non supportata)
+- ✅ **Windows 11 in italiano** (con bypass TPM 2.0, Secure Boot, CPU non supportata)
 - 🐧 **Distro Linux**: Ubuntu, Kubuntu, Xubuntu, Linux Mint, Fedora, Debian
 - 🖥️ **ChromeOS Flex** (Google) per vecchi PC
 - 🔧 **Ottimizzazione post-installazione**:
@@ -13,22 +16,14 @@
   - Rimuovi bloatware Microsoft
   - Abilita Avvio Veloce
   - Disattiva telemetria e servizi inutili
-- 💾 Per creare una USB multi-boot, scarica Ventoy da: https://www.ventoy.net
-
-## 📥 Download
-- [Scarica l'ultima versione (CRSoftware.exe)](https://github.com/LelloDeeJay/CRSoftware/releases)
 
 ## ▶️ Come usare
-1. Scarica `CRSoftware.exe`
+1. Scarica `CRSoftware.exe` dalla sezione [Releases](https://github.com/LelloDeeJay/CRSoftware/releases)
 2. Esegui su qualsiasi PC (non richiede .NET installato)
-3. Scegli il sistema operativo da installare
-4. Dopo l’installazione di Windows, usa la tab **"Ottimizza Sistema"**
+3. Scegli il sistema da installare
 
-## 🛠️ Compilare da sorgente
-```powershell
-git clone https://github.com/LelloDeeJay/CRSoftware.git
-cd CRSoftware
-dotnet publish -r win-x64 -c Release --self-contained true -p:PublishSingleFile=true
+## 📄 Licenza
+Distribuito con licenza **Apache 2.0** — libero per uso personale e commerciale.e=true
 =======
 # CRSoftware
 Realizzazione di software personalizzato
