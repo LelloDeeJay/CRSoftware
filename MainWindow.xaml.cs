@@ -11,13 +11,19 @@ namespace CRSoftware
     public partial class MainWindow : Window
     {
         private readonly string tempDir = Path.Combine(Path.GetTempPath(), "CRSoftware_Temp");
-        private string selectedLanguage = "it"; // Default: Italiano
+        private string selectedLanguage = "it";
 
         public MainWindow()
         {
             InitializeComponent();
             if (!Directory.Exists(tempDir))
                 Directory.CreateDirectory(tempDir);
+
+            CmbLanguage.SelectionChanged += (s, e) =>
+            {
+                var item = CmbLanguage.SelectedItem as ComboBoxItem;
+                selectedLanguage = (item?.Tag as string) ?? "it";
+            };
         }
 
         private async void BtnInstallWin11_Click(object sender, RoutedEventArgs e)
@@ -48,11 +54,7 @@ namespace CRSoftware
         private async void BtnInstallLinux_Click(object sender, RoutedEventArgs e)
         {
             var selected = CmbLinuxDistro.SelectedItem as ComboBoxItem;
-            if (selected == null)
-            {
-                MessageBox.Show("Seleziona una distribuzione Linux.", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+            if (selected == null) return;
 
             string distro = (selected.Tag as string) ?? "ubuntu";
             string url = distro switch
@@ -66,19 +68,17 @@ namespace CRSoftware
                 _ => "https://releases.ubuntu.com/24.04/ubuntu-24.04-desktop-amd64.iso"
             };
 
-            string langNote = "\n\nℹ️ L'ISO è in inglese, ma potrai selezionare l'italiano durante l'installazione.";
-            await StartInstallation($"Linux: {selected.Content}{langNote}", url);
+            await StartInstallation($"Linux: {selected.Content}", url);
         }
 
         private async void BtnInstallChromeOS_Click(object sender, RoutedEventArgs e)
         {
-            string note = "\n\nℹ️ La lingua verrà impostata automaticamente al primo avvio.";
-            await StartInstallation($"ChromeOS Flex{note}", "https://dl.google.com/chromeos/flashbench/ChromeOSFlex.iso");
+            await StartInstallation("ChromeOS Flex", "https://dl.google.com/chromeos/flashbench/ChromeOSFlex.iso");
         }
 
-        private void BtnCreateUSB_Click(object sender, RoutedEventArgs e)
+        private async void BtnOptimize_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Funzionalità USB Multi-Boot in preparazione.\nPer ora, usa Rufus o Ventoy manualmente.", "CRSoftware", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Funzionalità di ottimizzazione in preparazione.\nNella versione finale includerà:\n- Installazione browser selezionati\n- Pulizia bloatware\n- Avvio veloce", "CRSoftware", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private async Task StartInstallation(string name, string url)
